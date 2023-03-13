@@ -10,7 +10,7 @@ function App() {
   const [isUpdating,setUpdating]=useState("");
 
 useEffect(()=>{
-axios.get("http://localhost:5000/get-todo")
+axios.get("https://todoapp-fullstack-server-wln2.vercel.app/get-todo")
 .then((res)=>setTodo(res.data))
 .catch((err)=>console.log(err))
 })
@@ -18,7 +18,7 @@ axios.get("http://localhost:5000/get-todo")
 
 const addUpdate=()=>{
 if(isUpdating===""){
-  axios.post("http://localhost:5000/save-todo",{text})
+  axios.post("https://todoapp-fullstack-server-wln2.vercel.app/save-todo",{text})
   .then((res)=>{
     console.log(res.data)
      setText("");
@@ -26,7 +26,7 @@ if(isUpdating===""){
   .catch((err)=>console.log(err))
 
 }else{
-  axios.post("http://localhost:5000/update-todo",{_id:isUpdating,text})
+  axios.post("https://todoapp-fullstack-server-wln2.vercel.app/update-todo",{_id:isUpdating,text})
   .then((res)=>{
     console.log(res.data)
      setText("");
@@ -37,7 +37,7 @@ if(isUpdating===""){
 }
 
 const deleteToDo=(_id)=>{
-  axios.post("http://localhost:5000/delete-todo",{_id})
+  axios.post("https://todoapp-fullstack-server-wln2.vercel.app/delete-todo",{_id})
   .then((res)=>{
     console.log(res.data)
    
